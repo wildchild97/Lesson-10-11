@@ -1,20 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.io.*;
 
-/**
- *
- * @author cait2290
- */
 public class SearchApp extends javax.swing.JFrame {
-
-    /**
-     * Creates new form SearchApp
-     */
+        ISS_Student s[]=new ISS_Student[100];
+    
     public SearchApp() {
         initComponents();
+        try{
+        FileReader fr= new FileReader("studata.scr");
+        BufferedReader br= new BufferedReader(fr);
+        
+        String nm, ad;
+        int id;
+        for (int x=0; x<100;x++)
+        {
+           nm=br.readLine();
+           ad=br.readLine();
+           id=Integer.parseInt(br.readLine());
+           s[x]= new ISS_Student(nm,ad,id);
+           System.out.println(s[x]);
+        }
+        
+        }catch(Exception e){}
     }
 
     /**
@@ -36,8 +42,18 @@ public class SearchApp extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnsearch.setText("Search");
+        btnsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsearchActionPerformed(evt);
+            }
+        });
 
         btnclear.setText("Clear");
+        btnclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclearActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Enter Student ID Number to Search");
 
@@ -86,9 +102,39 @@ public class SearchApp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
+        ISS_Student temp;
+        int id=Integer.parseInt(txtid.getText());
+        temp= new ISS_Student("","",id);
+        int location=search(s,temp);
+        
+        if (location==-1)
+            txtresult.setText("Student not found");
+        else
+            txtresult.setText(s[location].toString());
+    }//GEN-LAST:event_btnsearchActionPerformed
+
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
+        txtid.setText("");
+        txtresult.setText("");
+    }//GEN-LAST:event_btnclearActionPerformed
+       
+    public static int search (Object[] a, Object searchValue){
+	   int left = 0;
+	   int right = a.length-1;
+	   while (left <= right){
+	      int midpoint = (left + right) / 2;
+	      int result = ((ISS_Student)a[midpoint]).compareTo(searchValue); 
+	      if (result == 0)
+	         return midpoint;
+	      else if (result < 0)
+	         left = midpoint + 1;
+	      else
+	         right = midpoint-1;
+	   }
+	   return -1;			   
+}
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
