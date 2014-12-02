@@ -1,5 +1,6 @@
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 
 public class Sorting extends javax.swing.JFrame {
@@ -194,7 +195,10 @@ public class Sorting extends javax.swing.JFrame {
     private void btnbubbleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbubbleActionPerformed
         //clear list
         model.clear();
+        long stime=System.nanoTime();
         bubbleSort(nums);
+        long etime=System.nanoTime()-stime;
+        JOptionPane.showMessageDialog(this, "Time it took: " + etime);
         //rebuild list
         for (int x=0;x<nums.length;x++)
             model.addElement(nums[x]);
