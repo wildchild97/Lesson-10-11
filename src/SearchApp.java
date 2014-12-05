@@ -17,7 +17,7 @@ public class SearchApp extends javax.swing.JFrame {
            ad=br.readLine();
            id=Integer.parseInt(br.readLine());
            s[x]= new ISS_Student(nm,ad,id);
-           System.out.println(s[x]);
+           //System.out.println(s[x]);
         }
         
         }catch(Exception e){}

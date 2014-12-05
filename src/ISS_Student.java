@@ -19,7 +19,7 @@ public class ISS_Student implements Comparable
     
     public String toString()
     {
-        String str="Name:\t" + name;
+        String str="\nName:\t" + name;
         str+="\nAddress:\t" + address;
         str+="\nID Number:\t"+ id;
         return str;

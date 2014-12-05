@@ -1,18 +1,20 @@
 
 public class fruit_list {
     
-    static int logicalSize=4;
+    static int logicalSize=5;
     
     public static void main(String[] args) {
         String fruits[]= new String[10];
         fruits[0]="Apple";
         fruits[1]="Banana";
         fruits[2]="Kiwi";
-        fruits[3]="Strawberry";
+        fruits[3]="Orange";
+        fruits[4]="Strawberry";
        
-        //add orange to list
-        int loc=findInsertPoint(fruits,"Orange");
-        insert(fruits,"Orange",loc);
+        printFruits(fruits);
+        //add pineapple to list
+        int loc=findInsertPoint(fruits,"Pineapple");
+        insert(fruits,"Pineapple",loc);
         
         // add Cherries to list
         loc=findInsertPoint(fruits,"Cherries");
