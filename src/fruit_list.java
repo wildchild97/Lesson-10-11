@@ -12,27 +12,41 @@ public class fruit_list {
         fruits[4]="Strawberry";
        
         printFruits(fruits);
+        
+        System.out.println("Adding Pineapple to the list");
         //add pineapple to list
         int loc=findInsertPoint(fruits,"Pineapple");
         insert(fruits,"Pineapple",loc);
         
-        // add Cherries to list
-        loc=findInsertPoint(fruits,"Cherries");
-        insert(fruits,"Cherries",loc);
+        System.out.println("Adding Plum, Grape, Lemon");
+        // add plum,grape,lemon to list
+        loc=findInsertPoint(fruits,"Plum");
+        insert(fruits,"Plum",loc);
+        
+        loc=findInsertPoint(fruits,"Grape");
+        insert(fruits,"Grape",loc);
+        
+        loc=findInsertPoint(fruits,"Lemon");
+        insert(fruits,"Lemon",loc);
         
         //print updated list
-        for (int x=0; x<logicalSize; x++)
-            System.out.println(fruits[x]);
+        printFruits(fruits);
         
         //now removing kiwi
-        System.out.println("\nRemoving Kiwi\n");
+        System.out.println("\nRemoving Kiwi from List\n");
         loc=search(fruits,"Kiwi");
         delete(fruits,loc);
-        for (int x=0; x<logicalSize; x++)
-            System.out.println(fruits[x]);
-        
-        
+        printFruits(fruits); 
     }
+    
+    public static void printFruits(String f[])
+    {
+        for (int x=0; x<logicalSize;x++)
+        {
+            System.out.println("Fruits[" + x + "]=" + f[x]);
+        }
+    }
+    
     
     public static int search (Object[] a, Object searchValue){
 	   int left = 0;
