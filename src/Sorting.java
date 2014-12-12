@@ -33,6 +33,7 @@ public class Sorting extends javax.swing.JFrame {
         lstnums = new javax.swing.JList();
         btngenerate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnquicksort = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +70,13 @@ public class Sorting extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Sorting Methods");
 
+        btnquicksort.setText("Quick sort");
+        btnquicksort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnquicksortActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,11 +88,12 @@ public class Sorting extends javax.swing.JFrame {
                     .addComponent(btngenerate))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btninsertion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnselection, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnbubble, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnbubble, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnselection, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btninsertion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnquicksort, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -103,7 +112,9 @@ public class Sorting extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnselection)
                         .addGap(18, 18, 18)
-                        .addComponent(btninsertion)))
+                        .addComponent(btninsertion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnquicksort)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -191,6 +202,23 @@ public class Sorting extends javax.swing.JFrame {
 		}//end while
   	}//end for
     }//end method
+    
+    int search (int [] a, int searchValue, int left, int right)
+        {
+            if (left>right)
+                return -1;
+            else
+            {
+                int midpoint=(left+right)/2;
+                if (a[midpoint]==searchValue)
+                    return midpoint;
+                else if (a[midpoint]<searchValue)
+                    return search (a, searchValue, midpoint+1, right);
+                else
+                    return search (a, searchValue, left, midpoint-1);
+                
+            }
+        }
 
     private void btnbubbleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbubbleActionPerformed
         //clear list
@@ -229,9 +257,10 @@ public class Sorting extends javax.swing.JFrame {
             model.addElement(nums[x]);
     }//GEN-LAST:event_btninsertionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnquicksortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquicksortActionPerformed
+        quicksort(nums,0,nums.length);
+    }//GEN-LAST:event_btnquicksortActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -268,6 +297,7 @@ public class Sorting extends javax.swing.JFrame {
     private javax.swing.JButton btnbubble;
     private javax.swing.JButton btngenerate;
     private javax.swing.JButton btninsertion;
+    private javax.swing.JButton btnquicksort;
     private javax.swing.JButton btnselection;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
