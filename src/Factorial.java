@@ -1,9 +1,13 @@
+import TerminalIO.*;
 
 public class Factorial {
   
     public static void main(String[] args)
     {
-        int factorial (int n)
+        KeyboardReader k=new KeyboardReader();
+        int n=k.readInt("Enter the factorial max 15");
+        
+        int factorial ()
         {
             if (n==1)
                 return 1;
