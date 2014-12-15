@@ -1,4 +1,3 @@
-import TerminalIO.*;
 
 public class Factorial {
   

@@ -175,6 +175,7 @@ public class Sorting extends javax.swing.JFrame {
           minIndex = i;
     return minIndex;
     }
+   
     public static void insertionSort(int a[]){
 	int itemToInsert, j;
 	boolean stillLooking;
@@ -202,6 +203,34 @@ public class Sorting extends javax.swing.JFrame {
 		}//end while
   	}//end for
     }//end method
+    
+    
+   public static void quickSort (int [] a, int left, int right)
+    {
+        if (left>=right)return;
+        
+        int i=left;
+        int j=right;
+        int pivotValue=a[(left+right)/2];
+        
+        while (i<j)
+        {
+            while (a[i]<pivotValue) i++;
+            while (pivotValue<a[j]) j--;
+            
+            if (i<=j)
+            {
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+                i++;
+                j--;
+            }
+        }
+        quickSort (a,left,j);
+        quickSort (a,i,right);
+    }
+    
     
     int search (int [] a, int searchValue, int left, int right)
         {
@@ -258,7 +287,17 @@ public class Sorting extends javax.swing.JFrame {
     }//GEN-LAST:event_btninsertionActionPerformed
 
     private void btnquicksortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquicksortActionPerformed
-        quicksort(nums,0,nums.length);
+        //clear list
+        model.clear();
+        double stime=System.currentTimeMillis();
+        
+        quickSort(nums,0,nums.length-1);
+        
+        double etime=System.currentTimeMillis()-stime;
+         JOptionPane.showMessageDialog(this, "Time it took: " + etime/1000 + " seconds");
+        //rebuild list
+        for (int x=0;x<nums.length;x++)
+            model.addElement(nums[x]);
     }//GEN-LAST:event_btnquicksortActionPerformed
 
     public static void main(String args[]) {
