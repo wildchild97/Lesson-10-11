@@ -6,14 +6,15 @@ public class Fibonacci
     {
         KeyboardReader k=new KeyboardReader();
        int f=k.readInt("Enter a Fibonacci number: ");
-       
-        int fibonacci(int n)
+
+        System.out.println(fibonacci(f));
+    }
+    
+    static int fibonacci(int n)
         {
             if (n<=2)
                 return 1;
             else
                 return fibonacci (n-1) + fibonacci (n-2);
         }
-        System.out.println(fibonnaci(f));
-    }
 }
