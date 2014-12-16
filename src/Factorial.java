@@ -5,7 +5,7 @@ public class Factorial {
     public static void main(String[] args)
     {
         KeyboardReader k=new KeyboardReader();
-      int f=k.readInt("Enter the factorial max 15");
+      int f=k.readInt("Enter the factorial (max 15): ");
         
         System.out.println(factorial(f));
     }
@@ -17,4 +17,5 @@ public class Factorial {
             else
                 return n * factorial (n-1);
         }
+
 }

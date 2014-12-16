@@ -5,7 +5,7 @@ public class Fibonacci
     public static void main (String[] args)
     {
         KeyboardReader k=new KeyboardReader();
-       int f=k.readInt("Enter a Fibonacci number: ");
+       int f=k.readInt("Enter a Fibonacci number (max 15): ");
 
         System.out.println(fibonacci(f));
     }
@@ -18,3 +18,4 @@ public class Fibonacci
                 return fibonacci (n-1) + fibonacci (n-2);
         }
 }
+
