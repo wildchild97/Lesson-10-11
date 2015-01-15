@@ -13,29 +13,26 @@ public class LinkedPriorityQueue implements PriorityQueue{
         {
             list[x]= new ArrayList();
         }
-    }
-    
-    
+    } 
  
-    public void enqueue(Object obj, int i) {
+    public void enqueue(Object obj, int i) 
+    {
         //add to correct priority list
         list[i].add(0);
     }
 
-    public Object peekFront() {
-        if (list.isEmpty()) {
-        } else {
-            throw new IllegalStateException
-                                        ("Queue is empty");
-        }
-		return list.get(0);
+    public Object peekFront() 
+    {
+        if (list.isEmpty()) 
+            throw new IllegalStateException("Queue is empty");
+            return list.get(0);
     }
   
-    public Object dequeue() {
+    public Object dequeue() 
+    {
         if (list.isEmpty())
-			throw new IllegalStateException
-				("Queue is empty");
-		return list.remove(0);
+            throw new IllegalStateException("Queue is empty");
+            return list.remove(0);
     }
    
     public void enqueue(Object o) {
