@@ -409,15 +409,17 @@ public class TaskProgram extends javax.swing.JFrame {
     }//GEN-LAST:event_mnurestoreActionPerformed
 
     private void mnuclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuclearActionPerformed
-        this.dispose();
+        txtname.setText("");
+        txtdes.setText("");
     }//GEN-LAST:event_mnuclearActionPerformed
 
     private void btnprevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprevActionPerformed
-        if(curtask==tottask) return;
-        curtask++;
+        if (curtask==0) return;
+        
+        curtask--;
         lblctask.setText("" +curtask);
         li.previous();//passes over current task
-        li.previous();
+        //li.previous();
         t=(Task)li.next();
         
         //update display
