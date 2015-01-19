@@ -8,7 +8,7 @@ public class ERGUI extends javax.swing.JFrame {
         
     public ERGUI() {
         initComponents();
-       
+       //Patient pat=new Patient();
     }
 
     @SuppressWarnings("unchecked")
@@ -58,8 +58,18 @@ public class ERGUI extends javax.swing.JFrame {
         });
 
         btnnext.setText("Treat Next Patient");
+        btnnext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnnextActionPerformed(evt);
+            }
+        });
 
         btnall.setText("Treat All Patients");
+        btnall.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnallActionPerformed(evt);
+            }
+        });
 
         txtpatients.setColumns(20);
         txtpatients.setRows(5);
@@ -140,6 +150,17 @@ public class ERGUI extends javax.swing.JFrame {
       buttonGroup1.clearSelection();//clears radio buttons
       txtname.setText("");
     }//GEN-LAST:event_btnscheduleActionPerformed
+
+    private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
+        
+        
+        
+        
+    }//GEN-LAST:event_btnnextActionPerformed
+
+    private void btnallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnallActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnallActionPerformed
 
     /**
      * @param args the command line arguments

@@ -163,11 +163,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Treat Next Patient"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnextActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnall">
       <Properties>
         <Property name="text" type="java.lang.String" value="Treat All Patients"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnallActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
